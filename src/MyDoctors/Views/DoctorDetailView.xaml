@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="MyDoctors.Views.DoctorDetailView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
+    <NavigationPage.TitleView>
+        <Label Style="{StaticResource TitleViewTitleTextStyle}" Text="Doctor Detail" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid RowDefinitions="*, Auto">
+            <ScrollView>
+                <Grid Margin="25,20">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="Auto,*">
+                            <Frame Style="{StaticResource CircleImageFrameStyle}">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="100"
+                                    HorizontalOptions="Center"
+                                    Source="{Binding SelectedDoctor.ProfilePicture}"
+                                    VerticalOptions="Center"
+                                    WidthRequest="100" />
+                            </Frame>
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    Text="{Binding SelectedDoctor.DoctorFullName}"
+                                    TextColor="{StaticResource AppMainColor}"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Small"
+                                    Text="{Binding SelectedDoctor.Mail}"
+                                    TextColor="{StaticResource AppMainColor}" />
+                                <StackLayout
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    Orientation="Horizontal">
+                                    <Image
+                                        HeightRequest="20"
+                                        Source="starIcon"
+                                        VerticalOptions="Center"
+                                        WidthRequest="20" />
+                                    <Label
+                                        FontSize="Small"
+                                        Text="4.5"
+                                        TextColor="SlateGray"
+                                        VerticalOptions="Center" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+
+                        <BoxView
+                            Margin="0,10"
+                            BackgroundColor="LightGray"
+                            HeightRequest="1" />
+
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="Location:"
+                            TextColor="DarkSlateGray"
+                            VerticalOptions="Center" />
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Text="Street:"
+                                TextColor="DarkSlateGray"
+                                VerticalOptions="Center" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Text="{Binding SelectedDoctor.Doctor.Location.Street}"
+                                TextColor="SlateGray" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Text="City:"
+                                TextColor="DarkSlateGray"
+                                VerticalOptions="Center" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Text="{Binding SelectedDoctor.Doctor.Location.City}"
+                                TextColor="SlateGray" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Text="Country:"
+                                TextColor="DarkSlateGray"
+                                VerticalOptions="Center" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Text="{Binding SelectedDoctor.Doctor.Location.Country}"
+                                TextColor="SlateGray" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Text="Zip Code:"
+                                TextColor="DarkSlateGray"
+                                VerticalOptions="Center" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Text="{Binding SelectedDoctor.Doctor.Location.Postcode}"
+                                TextColor="SlateGray" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Text="Phone Number:"
+                                TextColor="DarkSlateGray"
+                                VerticalOptions="Center" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Text="{Binding SelectedDoctor.Doctor.Phone}"
+                                TextColor="SlateGray" />
+                        </StackLayout>
+
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Margin="0,20"
+                            Text="Map:"
+                            TextColor="DarkSlateGray"
+                            VerticalOptions="Center" />
+
+                        <maps:Map x:Name="map" WidthRequest="400" HeightRequest="100"/>
+
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+
+            <Button
+                Grid.Row="1"
+                Margin="25,0"
+                Command="{Binding CallCommand}"
+                Style="{StaticResource MainActionButtonStyle}"
+                Text="Contact"
+                VerticalOptions="End" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

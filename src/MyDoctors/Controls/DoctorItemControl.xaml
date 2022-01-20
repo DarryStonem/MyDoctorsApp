@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Frame
+    x:Class="MyDoctors.Controls.DoctorItemControl"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    HasShadow="False"
+    Margin="3,6,3,0"
+    BorderColor="LightGray"
+    Visual="Material"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Grid ColumnDefinitions="Auto,*">
+        <!--    -->
+        <Frame Style="{StaticResource CircleImageFrameStyle}">
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                Source="{Binding ProfilePicture}"
+                VerticalOptions="Center"
+                WidthRequest="100" />
+        </Frame>
+        <StackLayout
+            Grid.Column="1"
+            VerticalOptions="Center">
+            <Grid ColumnDefinitions="*, Auto">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    Text="{Binding DoctorFullName}"
+                    VerticalOptions="Center"
+                    TextColor="{StaticResource AppMainColor}" />
+                <StackLayout HorizontalOptions="Start" Grid.Column="1" Orientation="Horizontal">
+                    <Image
+                        HeightRequest="20"
+                        Source="starIcon"
+                        VerticalOptions="Center"
+                        WidthRequest="20" />
+                    <Label
+                        FontSize="Small"
+                        VerticalOptions="Center"
+                        Text="4.5"
+                        TextColor="SlateGray" />
+                </StackLayout>
+            </Grid>
+            <Label
+                FontAttributes="Bold"
+                FontSize="Small"
+                Text="{Binding Mail}"
+                TextColor="{StaticResource AppMainColor}" />
+            <Label
+                FontSize="Small"
+                Text="{Binding DoctorLocation}"
+                TextColor="SlateGray" />
+        </StackLayout>
+    </Grid>
+</Frame>

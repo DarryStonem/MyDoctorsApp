@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="MyDoctors.Views.LoginView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MyDoctors.Controls"
+    BackgroundColor="White"
+    Visual="Material">
+    <ContentPage.Resources>
+        <Style x:Key="LoginTitleStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowDefinitions="4*,6*">
+            <StackLayout Margin="25,35" VerticalOptions="Center">
+                <Label Style="{StaticResource LoginTitleStyle}" Text="Welcome" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Style="{StaticResource LoginTitleStyle}" Text="to" />
+                    <Label
+                        Style="{StaticResource LoginTitleStyle}"
+                        Text="Medical"
+                        TextColor="{StaticResource AppMainColor}" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="1"
+                Margin="25,0"
+                Spacing="15"
+                VerticalOptions="Start">
+                <controls:LoginEntry
+                    BorderColor="#00458b"
+                    BorderThickness="2"
+                    CornerRadius="8"
+                    HeightRequest="45"
+                    Keyboard="Email"
+                    MaxLength="50"
+                    Placeholder="Email Address"
+                    Text="{Binding Username}" />
+                <controls:LoginEntry
+                    BorderColor="#00458b"
+                    BorderThickness="2"
+                    CornerRadius="8"
+                    HeightRequest="45"
+                    IsPassword="True"
+                    MaxLength="50"
+                    Placeholder="Password"
+                    Text="{Binding Password}" />
+
+                <Button
+                    Command="{Binding LoginCommand}"
+                    Style="{StaticResource MainActionButtonStyle}"
+                    Text="Login" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

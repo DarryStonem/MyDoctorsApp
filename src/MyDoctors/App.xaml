@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyDoctors.App">
+    <Application.Resources>
+        <Style x:Key="CircleImageFrameStyle" TargetType="Frame">
+            <Setter Property="HasShadow" Value="False"/>
+            <Setter Property="CornerRadius" Value="40"/>
+            <Setter Property="IsClippedToBounds" Value="True"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="7"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HeightRequest" Value="80"/>
+            <Setter Property="WidthRequest" Value="80"/>
+        </Style>
+        <Color x:Key="AppMainColor">#00458b</Color>
+
+        <Style TargetType="NavigationPage">
+          <Setter Property="BarBackgroundColor" Value="{StaticResource AppMainColor}"/>
+          <Setter Property="BarTextColor" Value="White" />
+        </Style>
+
+        <Style TargetType="Label" x:Key="TitleViewTitleTextStyle">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="MainActionButtonStyle">
+            <Setter Property="Background" Value="{StaticResource AppMainColor}"/>
+            <Setter Property="BorderColor" Value="{StaticResource AppMainColor}"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+
+    </Application.Resources>
+</Application>

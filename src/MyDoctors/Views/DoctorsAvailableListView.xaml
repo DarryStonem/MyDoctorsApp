@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="MyDoctors.Views.DoctorsAvailableListView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MyDoctors.Controls">
+    <NavigationPage.TitleView>
+        <Label Style="{StaticResource TitleViewTitleTextStyle}" Text="Available Doctors" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <RefreshView IsRefreshing="{Binding IsBusy}">
+                <CollectionView
+                    ItemsSource="{Binding DoctorsList}"
+                    SelectedItem="{Binding SelectedDoctor, Mode=TwoWay}"
+                    SelectionChangedCommand="{Binding SelectedItemCommand}"
+                    SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <controls:DoctorItemControl Margin="16" BindingContext="{Binding}" />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
